@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
+#include "classes.h"
 
 using namespace std;
 
@@ -22,6 +25,11 @@ void mostra(string a){
 }
 
 int main(){
+
+	char c;
+	LAB *v1 = new LAB(10);
+	laboratorios *v2 = new laboratorios();
+
 	struct papel papelada;
 	papelada.papelaria = 1;
 	cout << papelada.papelaria << "\n";
@@ -56,5 +64,23 @@ int main(){
 	*p = 10;
 
 	cout << *p << "\n";
+
+	cout << "O LAB possui " << v1->membros << " membros, sendo que possui " << v1->getlocais() << " local (s)" << endl;
+	cout << "O BRASIL possui " << v2->membros << " membros, sendo que possui " << v2->getlocais() << " local (s)" << endl;
+
+	v2->membros = 1000;
+	v2->setlocais(9);
+
+	cout << "O EUA possui " << v2->membros << " membros, sendo que possui " << v2->getlocais() << " local (s)" << endl;
+
+std::string data = "This is a sample string.";
+ 
+// convert string to upper case
+std::for_each(data.begin(), data.end(), [](char & c){
+	c = ::toupper(c);
+});
+
+	cout << data << endl;
+	
 	return 0;
 }
